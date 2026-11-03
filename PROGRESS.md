@@ -4,14 +4,14 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 
 ## Current status
 - Site: Saffron & Smoke (Restaurant Website)
-- Last completed phase: Phase 2
-- Next phase: Phase 3
+- Last completed phase: Phase 3
+- Next phase: Phase 4
 - Live URL: (owner fills in after the first Vercel deploy)
 
 ## Phase checklist
 - [x] Phase 1: Scaffold, deploy and design system
 - [x] Phase 2: Home page
-- [ ] Phase 3: Main feature pages
+- [x] Phase 3: Main feature pages
 - [ ] Phase 4: Remaining pages
 - [ ] Phase 5: Polish and hand-off
 
@@ -28,6 +28,10 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - P2: Signature dish prices (₦): suya 9,500; jollof 14,500; catfish 24,000; lamb ribs 28,500; prawns 26,000; plantain 7,500. Categories: plantain = Desserts, jollof = Mains, the rest = Grill.
 - P2: Home copy lives in `src/data/home.js`. Story teaser stat "12 hrs the fire burns each service day" is fictional copy.
 - P2: Home final call to action uses `interior.jpg` as its background.
+- P3: Full menu (fictional dishes, prices, descriptions) in `src/data/menu.js`: 4 to 6 items per category, the 6 signatures kept and marked with a flame. Selected tab is kept in the URL (`/menu?c=grill`).
+- P3: Our Story copy in `src/data/story.js`. Fictional chef "Adaeze Okonkwo", her background, quote and the numbers strip (12 hrs, 3 spice blends, 0 gas burners) are invented copy. Images: chef = chef.jpg, idea = interior.jpg, fire = story.jpg.
+- P3: Gallery captions and tile shapes in `src/data/gallery.js`, following IMAGE-PROMPTS.md ratios. Lightbox uses native `<dialog>` (focus trap + Escape), arrow keys and swipe.
+- P3: Owner-supplied `public/images/hero.jpg` committed with this phase.
 
 ## Blockers
 (Write anything that stopped you. Say exactly what the owner must do.)
@@ -35,7 +39,7 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 ## Notes for next session
 (Short. Only what the next session needs to know.)
 - Shared components in `src/components/`: Header, Footer, Logo, Img (fallback), Button (`to`/`href`/button), Section (`tone="surface"`, `narrow`), PageTitle, Layout, Placeholder (temporary).
-- Pages are placeholders. Replace `Placeholder` usage as each page is built.
-- `src/data/menu.js` has `categories`, `menu` (only the 6 signature items so far; Phase 3 adds the rest, keep the 6), `signatureDishes`, `formatPrice`.
+- Pages still on `Placeholder`: Reservations, Contact, NotFound (Phase 4). Delete `Placeholder.jsx` and `.placeholder` CSS in base.css once unused.
+- Inner pages start with `PageHero` (eyebrow, h1, lede; handles header padding). `Arrow` component and `.text-link` (now in base.css) are shared.
+- `src/data/menu.js` has `categories`, full `menu`, `signatureDishes`, `tagLabels`, `menuPage`, `formatPrice`.
 - Scroll reveal: call `useReveal()` (src/hooks) in a page, add class `reveal` and optional `style={{"--d": "100ms"}}` delay.
-- `.text-link` (gold uppercase link with arrow) is defined in `Home.css`; move it to base.css if another page needs it.

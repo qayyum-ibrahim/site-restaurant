@@ -3,19 +3,12 @@ import PageTitle from "../components/PageTitle.jsx";
 import Section from "../components/Section.jsx";
 import Button from "../components/Button.jsx";
 import Img from "../components/Img.jsx";
+import Arrow from "../components/Arrow.jsx";
 import useReveal from "../hooks/useReveal.js";
 import { hoursSummary, reserveLink, site } from "../data/site.js";
 import { formatPrice, signatureDishes } from "../data/menu.js";
 import { finalCta, hero, signatures, storyTeaser, visit } from "../data/home.js";
 import "./Home.css";
-
-function Arrow() {
-  return (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" className="arrow">
-      <path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export default function Home() {
   useReveal();
