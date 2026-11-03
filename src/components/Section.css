@@ -1,0 +1,11 @@
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--surface {
+  background: var(--color-surface);
+}
+
+.container--narrow {
+  max-width: calc(var(--container-narrow) + var(--gutter) * 2);
+}
