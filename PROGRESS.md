@@ -48,7 +48,7 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 (Short. Only what the next session needs to know.)
 - Site complete.
 - Owner: run `/site-done restaurant <live url>` in the projects folder.
-- Owner: add the missing photos listed in `README.md` (only `hero.jpg` is in `public/images/` now).
+- Owner photos committed. Still missing: `gallery-8.jpg` (fallback shows until added).
 - Shared components in `src/components/`: Header, Footer, Logo, Img (fallback), Button, Section, PageTitle, PageHero, Layout, Lightbox, OpenBadge.
 - Inner pages start with `PageHero` (eyebrow, h1, lede; handles header padding). `Arrow` component and `.text-link` (now in base.css) are shared.
 - `src/data/menu.js` has `categories`, full `menu`, `signatureDishes`, `tagLabels`, `menuPage`, `formatPrice`.
