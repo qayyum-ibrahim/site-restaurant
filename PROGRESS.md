@@ -4,15 +4,15 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 
 ## Current status
 - Site: Saffron & Smoke (Restaurant Website)
-- Last completed phase: Phase 3
-- Next phase: Phase 4
+- Last completed phase: Phase 4
+- Next phase: Phase 5
 - Live URL: (owner fills in after the first Vercel deploy)
 
 ## Phase checklist
 - [x] Phase 1: Scaffold, deploy and design system
 - [x] Phase 2: Home page
 - [x] Phase 3: Main feature pages
-- [ ] Phase 4: Remaining pages
+- [x] Phase 4: Remaining pages
 - [ ] Phase 5: Polish and hand-off
 
 ## Decisions
@@ -32,6 +32,11 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - P3: Our Story copy in `src/data/story.js`. Fictional chef "Adaeze Okonkwo", her background, quote and the numbers strip (12 hrs, 3 spice blends, 0 gas burners) are invented copy. Images: chef = chef.jpg, idea = interior.jpg, fire = story.jpg.
 - P3: Gallery captions and tile shapes in `src/data/gallery.js`, following IMAGE-PROMPTS.md ratios. Lightbox uses native `<dialog>` (focus trap + Escape), arrow keys and swipe.
 - P3: Owner-supplied `public/images/hero.jpg` committed with this phase.
+- P4: Reservations copy, 30-minute time slots, max 8 guests and last seating 60 min before close in `src/data/reservations.js`. Time list only shows slots for the chosen day; Mondays are rejected (closed). Phone must have 10 to 15 digits. Note max 300 characters.
+- P4: Validation shows errors on blur and on submit; submit focuses the first invalid field. The success message replaces the form, names the booking and says nothing was sent.
+- P4: "Open now" badge uses Lagos time (`Africa/Lagos` via Intl), handles the 00:30 Friday/Saturday close and says when it next opens. Logic in `src/utils/openStatus.js`, badge in `OpenBadge`.
+- P4: Contact copy in `src/data/contact.js` ("Find the fire", kitchen closing note, valet parking line are fictional). Map placeholder is an inline SVG street pattern with an ember pin.
+- P4: Not-found page: "This plate has left the kitchen" with an outlined 404 and links home, menu and reservations. `Placeholder` component removed.
 
 ## Blockers
 (Write anything that stopped you. Say exactly what the owner must do.)
@@ -39,7 +44,8 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 ## Notes for next session
 (Short. Only what the next session needs to know.)
 - Shared components in `src/components/`: Header, Footer, Logo, Img (fallback), Button (`to`/`href`/button), Section (`tone="surface"`, `narrow`), PageTitle, Layout, Placeholder (temporary).
-- Pages still on `Placeholder`: Reservations, Contact, NotFound (Phase 4). Delete `Placeholder.jsx` and `.placeholder` CSS in base.css once unused.
+- All routes have real content. Form field styles (`.field`, `.select`) live in Reservations.css.
+- Lint has 2 old warnings (Footer `Date` in render, Header setState in effect); look at them in Phase 5.
 - Inner pages start with `PageHero` (eyebrow, h1, lede; handles header padding). `Arrow` component and `.text-link` (now in base.css) are shared.
 - `src/data/menu.js` has `categories`, full `menu`, `signatureDishes`, `tagLabels`, `menuPage`, `formatPrice`.
 - Scroll reveal: call `useReveal()` (src/hooks) in a page, add class `reveal` and optional `style={{"--d": "100ms"}}` delay.

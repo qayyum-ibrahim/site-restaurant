@@ -189,13 +189,3 @@ p {
     transform: none;
   }
 }
-
-.placeholder {
-  min-height: 70vh;
-  padding-top: calc(var(--header-h) + var(--section-y));
-  background-image: var(--glow-ember);
-}
-
-.placeholder h1 {
-  margin-top: var(--space-4);
-}
