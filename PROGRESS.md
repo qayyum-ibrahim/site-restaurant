@@ -4,8 +4,8 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 
 ## Current status
 - Site: Saffron & Smoke (Restaurant Website)
-- Last completed phase: Phase 4
-- Next phase: Phase 5
+- Last completed phase: Phase 5
+- Next phase: none. Site complete.
 - Live URL: (owner fills in after the first Vercel deploy)
 
 ## Phase checklist
@@ -13,7 +13,7 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - [x] Phase 2: Home page
 - [x] Phase 3: Main feature pages
 - [x] Phase 4: Remaining pages
-- [ ] Phase 5: Polish and hand-off
+- [x] Phase 5: Polish and hand-off
 
 ## Decisions
 (Write each choice you made without asking. One line each, with the phase number.)
@@ -37,15 +37,19 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - P4: "Open now" badge uses Lagos time (`Africa/Lagos` via Intl), handles the 00:30 Friday/Saturday close and says when it next opens. Logic in `src/utils/openStatus.js`, badge in `OpenBadge`.
 - P4: Contact copy in `src/data/contact.js` ("Find the fire", kitchen closing note, valet parking line are fictional). Map placeholder is an inline SVG street pattern with an ember pin.
 - P4: Not-found page: "This plate has left the kitchen" with an outlined 404 and links home, menu and reservations. `Placeholder` component removed.
+- P5: Fixed both lint warnings: footer year computed once at module level; header closes the mobile menu on route change during render (previous-path state) instead of in an effect.
+- P5: Our Story chapters overflowed by 29px at 1280px (flipped chapter media had no width). Gave `.chapter__media` `width: 100%` and grid children `min-width: 0`.
+- P5: Checked every route at 360, 768, 1024, 1280 and 1920 in headless Chrome (iframe test, no horizontal scroll), one h1 per page, a title per route, all routes 200 in `npm run preview`.
 
 ## Blockers
 (Write anything that stopped you. Say exactly what the owner must do.)
 
 ## Notes for next session
 (Short. Only what the next session needs to know.)
-- Shared components in `src/components/`: Header, Footer, Logo, Img (fallback), Button (`to`/`href`/button), Section (`tone="surface"`, `narrow`), PageTitle, Layout, Placeholder (temporary).
-- All routes have real content. Form field styles (`.field`, `.select`) live in Reservations.css.
-- Lint has 2 old warnings (Footer `Date` in render, Header setState in effect); look at them in Phase 5.
+- Site complete.
+- Owner: run `/site-done restaurant <live url>` in the projects folder.
+- Owner: add the missing photos listed in `README.md` (only `hero.jpg` is in `public/images/` now).
+- Shared components in `src/components/`: Header, Footer, Logo, Img (fallback), Button, Section, PageTitle, PageHero, Layout, Lightbox, OpenBadge.
 - Inner pages start with `PageHero` (eyebrow, h1, lede; handles header padding). `Arrow` component and `.text-link` (now in base.css) are shared.
 - `src/data/menu.js` has `categories`, full `menu`, `signatureDishes`, `tagLabels`, `menuPage`, `formatPrice`.
 - Scroll reveal: call `useReveal()` (src/hooks) in a page, add class `reveal` and optional `style={{"--d": "100ms"}}` delay.

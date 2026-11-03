@@ -5,8 +5,13 @@
   align-items: center;
 }
 
+.chapter__grid > * {
+  min-width: 0;
+}
+
 .chapter__media {
   position: relative;
+  width: 100%;
   max-width: 560px;
 }
 

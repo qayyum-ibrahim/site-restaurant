@@ -3,9 +3,9 @@ import { nav, reserveLink, site } from "../data/site.js";
 import Logo from "./Logo.jsx";
 import "./Footer.css";
 
-export default function Footer() {
-  const year = new Date().getFullYear();
+const year = new Date().getFullYear();
 
+export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer__grid">
