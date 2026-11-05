@@ -16,6 +16,14 @@
   border-bottom-color: var(--color-line);
 }
 
+/* backdrop-filter makes the header the containing block for the fixed
+   panel, which would clip it to the header height. Drop it while open. */
+.header.is-open {
+  background: var(--color-bg);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
 .header__bar {
   display: flex;
   align-items: center;

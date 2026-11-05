@@ -40,6 +40,7 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - P5: Fixed both lint warnings: footer year computed once at module level; header closes the mobile menu on route change during render (previous-path state) instead of in an effect.
 - P5: Our Story chapters overflowed by 29px at 1280px (flipped chapter media had no width). Gave `.chapter__media` `width: 100%` and grid children `min-width: 0`.
 - P5: Checked every route at 360, 768, 1024, 1280 and 1920 in headless Chrome (iframe test, no horizontal scroll), one h1 per page, a title per route, all routes 200 in `npm run preview`.
+- Fix: mobile menu panel was clipped to header height once the header turned solid (`backdrop-filter` makes the header the containing block for the fixed panel). `.header.is-open` now drops the filter and uses a solid background.
 
 ## Blockers
 (Write anything that stopped you. Say exactly what the owner must do.)
